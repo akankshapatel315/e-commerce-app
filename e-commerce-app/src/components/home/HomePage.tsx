@@ -3,7 +3,7 @@ import  { useEffect, useState } from "react"
 import axios from "axios"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface Product {
@@ -41,7 +41,7 @@ export const HomePage = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("https://dummyjson.com/products/categories")
+      const res = await axios.get('https://dummyjson.com/products/category-list')
       setCategories(["all", ...res.data])
     } catch (error) {
       console.error("Error fetching categories", error)
@@ -69,7 +69,7 @@ export const HomePage = () => {
       <h1 className="text-3xl font-bold text-center">🛒 Product Store</h1>
 
       <div className="flex justify-between items-center">
-        {/* <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
           <SelectTrigger className="w-[200px]">
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
@@ -80,7 +80,7 @@ export const HomePage = () => {
               </SelectItem>
             ))}
           </SelectContent>
-        </Select> */}
+        </Select>
         <div className="text-sm text-gray-600">
           Showing {startIdx + 1}–{Math.min(endIdx, products.length)} of {products.length}
         </div>
