@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   return (
     <div className=" w-full min-h-screen flex items-center justify-center px-4 bg-red-400">
-      {/* <Card className="w-full max-w-md shadow-lg">
+      <Card className="w-full max-w-md shadow-lg">
         <CardContent className="p-6 space-y-6">
           <h2 className="text-2xl font-semibold text-center">Login to Your Account</h2>
           <form onSubmit={handleLogin} className="space-y-4">
@@ -51,7 +51,7 @@ const LoginPage = () => {
             <Button type="submit" className="w-full">Login</Button>
           </form>
         </CardContent>
-      </Card> */}
+      </Card>
     </div>
   )
 }
