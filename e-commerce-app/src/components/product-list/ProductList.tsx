@@ -1,10 +1,12 @@
-import { IProduct } from "../home/HomePage";
+import { useDispatch } from 'react-redux';
+import {addToCart, IProduct} from '../../../redux/slices/cartSlice'
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 export interface IProductList {
   paginatedProducts: IProduct[];
 }
 const ProductList = ({ paginatedProducts }: IProductList) => {
+    const dispatch = useDispatch()
   return (
     <>
       {paginatedProducts.map((product: IProduct) => (
@@ -25,7 +27,14 @@ const ProductList = ({ paginatedProducts }: IProductList) => {
             </div>
             <div className="flex justify-between items-center">
               <p className="text-blue-600 font-bold">${product.price}</p>
-              <Button size="sm">Add to Cart</Button>
+              <Button size="sm"
+              onClick={() =>
+                dispatch(addToCart({
+                    id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail,
+                    category: product.category
+                }))
+              }
+              >Add to Cart</Button>
             </div>
           </CardContent>
         </Card>

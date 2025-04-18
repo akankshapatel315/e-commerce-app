@@ -10,14 +10,8 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import PaginationButton from "../pagination-buttons/PaginationButton";
 import ProductList from "../product-list/ProductList";
+import {IProduct} from '../../../redux/slices/cartSlice'
 
-export interface IProduct {
-  id: number;
-  title: string;
-  price: number;
-  thumbnail: string;
-  category: string;
-}
 
 const PRODUCTS_PER_PAGE = 12;
 

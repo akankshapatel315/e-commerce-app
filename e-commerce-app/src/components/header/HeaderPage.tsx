@@ -1,17 +1,23 @@
+import { useSelector } from "react-redux"
 import { ShoppingCart } from "lucide-react"
+import { RootState } from "redux/store"
 
-export const Header = () => {
+const Header = () => {
+  const cartCount = useSelector((state: RootState) => state.cart.items.length)
+
   return (
-    <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-50">
-      <h1 className="text-2xl font-bold text-blue-600">🛍️ Shoppy</h1>
-      <div className="flex items-center gap-4">
-        <div className="relative cursor-pointer">
-          <ShoppingCart size={24} />
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-            3
+    <header className="flex items-center justify-between px-6 py-4 shadow-md">
+      <h1 className="text-2xl font-bold">🛍️ ShopEasy</h1>
+      <div className="relative">
+        <ShoppingCart className="w-6 h-6" />
+        {cartCount > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+            {cartCount}
           </span>
-        </div>
+        )}
       </div>
     </header>
   )
 }
+
+export default Header

@@ -7,7 +7,7 @@ import {
 import { Toaster } from "sonner";
 import { LoginPage } from "./components/login/LoginPage";
 import {HomePage} from "./components/home/HomePage";
-import { Header } from "./components/header/HeaderPage";
+import Header from "./components/header/HeaderPage";
 
 function App() {
   return (
